@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════════════════════
+   NEURAL NEXUS — Design Token System
+   Prabhav Sharma's RPG Portfolio
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+    /* ─────────────────────────────────────────────────────── */
+    /* COLOR SYSTEM                                            */
+    /* ─────────────────────────────────────────────────────── */
+
+    /* Backgrounds — darkest to lightest */
+    --bg-void: #03030a;
+    --bg-primary: #0a0a14;
+    --bg-surface: #0f0f1e;
+    --bg-elevated: #14142b;
+    --bg-hover: #1a1a3e;
+
+    /* Neon Accent Colors */
+    --neon-cyan: #00f0ff;
+    --neon-purple: #b74bff;
+    --neon-pink: #ff2d7b;
+    --neon-green: #00ff88;
+    --neon-gold: #ffd700;
+    --neon-orange: #ff8c00;
+    --neon-blue: #00a8ff;
+
+    /* Dim Accent Variants (for backgrounds / subtle fills) */
+    --cyan-dim: rgba(0, 240, 255, 0.08);
+    --cyan-subtle: rgba(0, 240, 255, 0.15);
+    --cyan-glow: rgba(0, 240, 255, 0.4);
+    --purple-dim: rgba(183, 75, 255, 0.08);
+    --purple-subtle: rgba(183, 75, 255, 0.15);
+    --purple-glow: rgba(183, 75, 255, 0.4);
+    --pink-dim: rgba(255, 45, 123, 0.1);
+    --green-dim: rgba(0, 255, 136, 0.1);
+    --gold-dim: rgba(255, 215, 0, 0.1);
+
+    /* Text Colors */
+    --text-primary: #e8e8f0;
+    --text-secondary: #8888aa;
+    --text-muted: #555577;
+    --text-accent: var(--neon-cyan);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(10, 10, 25, 0.6);
+    --glass-bg-hover: rgba(15, 15, 35, 0.8);
+    --glass-border: rgba(0, 240, 255, 0.12);
+    --glass-border-hover: rgba(0, 240, 255, 0.3);
+    --glass-blur: 16px;
+
+    /* Rarity Colors (RPG Tier System) */
+    --rarity-legendary: #ffd700;
+    --rarity-legendary-bg: rgba(255, 215, 0, 0.08);
+    --rarity-legendary-border: rgba(255, 215, 0, 0.3);
+    --rarity-epic: #b74bff;
+    --rarity-epic-bg: rgba(183, 75, 255, 0.08);
+    --rarity-epic-border: rgba(183, 75, 255, 0.3);
+    --rarity-rare: #00a8ff;
+    --rarity-rare-bg: rgba(0, 168, 255, 0.08);
+    --rarity-rare-border: rgba(0, 168, 255, 0.3);
+    --rarity-uncommon: #2ecc71;
+    --rarity-uncommon-bg: rgba(46, 204, 113, 0.08);
+    --rarity-uncommon-border: rgba(46, 204, 113, 0.3);
+    --rarity-common: #8888aa;
+    --rarity-common-bg: rgba(136, 136, 170, 0.08);
+    --rarity-common-border: rgba(136, 136, 170, 0.3);
+
+    /* ─────────────────────────────────────────────────────── */
+    /* TYPOGRAPHY                                              */
+    /* ─────────────────────────────────────────────────────── */
+
+    /* Font Families */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+
+    /* Font Sizes (modular scale) */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+    --text-6xl: 3.75rem;    /* 60px */
+
+    /* Font Weights */
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    --weight-black: 900;
+
+    /* Line Heights */
+    --leading-tight: 1.1;
+    --leading-snug: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.75;
+
+    /* Letter Spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.05em;
+    --tracking-wider: 0.1em;
+    --tracking-widest: 0.2em;
+
+    /* ─────────────────────────────────────────────────────── */
+    /* SPACING                                                 */
+    /* ─────────────────────────────────────────────────────── */
+    --space-1: 0.25rem;   /* 4px */
+    --space-2: 0.5rem;    /* 8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.25rem;   /* 20px */
+    --space-6: 1.5rem;    /* 24px */
+    --space-8: 2rem;      /* 32px */
+    --space-10: 2.5rem;   /* 40px */
+    --space-12: 3rem;     /* 48px */
+    --space-16: 4rem;     /* 64px */
+    --space-20: 5rem;     /* 80px */
+    --space-24: 6rem;     /* 96px */
+    --space-32: 8rem;     /* 128px */
+
+    /* ─────────────────────────────────────────────────────── */
+    /* BORDERS & RADIUS                                        */
+    /* ─────────────────────────────────────────────────────── */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 50%;
+
+    /* ─────────────────────────────────────────────────────── */
+    /* SHADOWS & GLOWS                                         */
+    /* ─────────────────────────────────────────────────────── */
+
+    /* Standard Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.6);
+
+    /* Neon Glows */
+    --glow-cyan-sm: 0 0 10px rgba(0, 240, 255, 0.3);
+    --glow-cyan-md: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 40px rgba(0, 240, 255, 0.1);
+    --glow-cyan-lg: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 40px rgba(0, 240, 255, 0.2), 0 0 80px rgba(0, 240, 255, 0.1);
+    --glow-cyan-intense: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 30px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.2), 0 0 100px rgba(0, 240, 255, 0.1);
+
+    --glow-purple-sm: 0 0 10px rgba(183, 75, 255, 0.3);
+    --glow-purple-md: 0 0 20px rgba(183, 75, 255, 0.3), 0 0 40px rgba(183, 75, 255, 0.1);
+    --glow-purple-lg: 0 0 20px rgba(183, 75, 255, 0.4), 0 0 40px rgba(183, 75, 255, 0.2), 0 0 80px rgba(183, 75, 255, 0.1);
+
+    --glow-gold-sm: 0 0 10px rgba(255, 215, 0, 0.3);
+    --glow-gold-md: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(255, 215, 0, 0.1);
+
+    --glow-green-sm: 0 0 10px rgba(0, 255, 136, 0.3);
+    --glow-pink-sm: 0 0 10px rgba(255, 45, 123, 0.3);
+
+    /* Text Glows */
+    --text-glow-cyan: 0 0 7px rgba(0, 240, 255, 0.8), 0 0 15px rgba(0, 240, 255, 0.4), 0 0 30px rgba(0, 240, 255, 0.2);
+    --text-glow-purple: 0 0 7px rgba(183, 75, 255, 0.8), 0 0 15px rgba(183, 75, 255, 0.4), 0 0 30px rgba(183, 75, 255, 0.2);
+    --text-glow-gold: 0 0 7px rgba(255, 215, 0, 0.8), 0 0 15px rgba(255, 215, 0, 0.4);
+
+    /* ─────────────────────────────────────────────────────── */
+    /* TRANSITIONS                                             */
+    /* ─────────────────────────────────────────────────────── */
+    --transition-fast: 150ms ease;
+    --transition-base: 300ms ease;
+    --transition-slow: 500ms ease;
+    --transition-slower: 800ms ease;
+    --transition-glow: 300ms ease;
+
+    /* ─────────────────────────────────────────────────────── */
+    /* Z-INDEX SCALE                                           */
+    /* ─────────────────────────────────────────────────────── */
+    --z-behind: -1;
+    --z-base: 0;
+    --z-content: 1;
+    --z-overlay: 10;
+    --z-nav: 100;
+    --z-modal: 200;
+    --z-tooltip: 300;
+    --z-loading: 9999;
+
+    /* ─────────────────────────────────────────────────────── */
+    /* LAYOUT                                                  */
+    /* ─────────────────────────────────────────────────────── */
+    --max-width: 1200px;
+    --max-width-narrow: 900px;
+    --nav-height: 70px;
+    --section-padding: var(--space-24);
+    --section-padding-mobile: var(--space-12);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    :root {
+        --text-5xl: 2.25rem;
+        --text-6xl: 2.75rem;
+        --text-4xl: 1.875rem;
+        --section-padding: var(--space-16);
+        --nav-height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --text-5xl: 1.875rem;
+        --text-6xl: 2.25rem;
+        --text-4xl: 1.5rem;
+        --text-3xl: 1.375rem;
+        --section-padding: var(--space-12);
+    }
+}

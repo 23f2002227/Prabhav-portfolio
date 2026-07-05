@@ -1,0 +1,313 @@
+/* ═══════════════════════════════════════════════════════════
+   NEURAL NEXUS — Pipeline Section (Neural Forge)
+   Pipeline nodes, connectors, data flow, tooltips
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────── */
+/* SECTION BACKGROUND                                       */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-section {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 240, 255, 0.01) 30%,
+        rgba(183, 75, 255, 0.01) 70%,
+        transparent 100%
+    );
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* PIPELINE VISUALIZATION CONTAINER                         */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-visualization {
+    max-width: var(--max-width-narrow);
+    margin: 0 auto var(--space-10);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* PIPELINE ROW                                             */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.pipeline-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* PIPELINE NODE                                            */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-node {
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.node-body {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    min-width: 130px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: all var(--transition-base);
+    backdrop-filter: blur(var(--glass-blur));
+}
+
+.pipeline-node:hover .node-body {
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--glow-cyan-md);
+    transform: translateY(-4px);
+    background: var(--glass-bg-hover);
+}
+
+/* Node Pulse Ring */
+.node-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--radius-lg);
+    animation: node-pulse 3s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.node-icon {
+    font-size: var(--text-2xl);
+    line-height: 1;
+}
+
+.node-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: var(--text-secondary);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+}
+
+.pipeline-node:hover .node-label {
+    color: var(--neon-cyan);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* PIPELINE CONNECTOR (Horizontal)                          */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-connector {
+    flex: 1;
+    height: 2px;
+    min-width: 30px;
+    max-width: 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.data-flow {
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--neon-cyan) 0px,
+        var(--neon-cyan) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+    background-size: 40px 100%;
+    animation: data-flow 1.5s linear infinite;
+    opacity: 0.5;
+}
+
+.data-flow.reverse {
+    animation: data-flow-reverse 1.5s linear infinite;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* PIPELINE RETURN CONNECTOR (Vertical U-bend)              */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-return-connector {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 65px;
+    height: 50px;
+    position: relative;
+}
+
+.pipeline-return-connector .data-flow {
+    width: 2px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        180deg,
+        var(--neon-purple) 0px,
+        var(--neon-purple) 8px,
+        transparent 8px,
+        transparent 16px
+    );
+    background-size: 100% 40px;
+    animation: data-flow 1.5s linear infinite;
+    opacity: 0.4;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* NODE TOOLTIP                                             */
+/* ─────────────────────────────────────────────────────── */
+.node-tooltip {
+    position: absolute;
+    bottom: calc(100% + 16px);
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    background: rgba(10, 10, 25, 0.95);
+    border: 1px solid var(--glass-border-hover);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    min-width: 220px;
+    max-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-fast);
+    z-index: var(--z-tooltip);
+    pointer-events: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.pipeline-node:hover .node-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+.node-tooltip p {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    margin-bottom: var(--space-3);
+}
+
+.tooltip-tech {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--neon-cyan);
+    letter-spacing: var(--tracking-wide);
+    display: block;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* PIPELINE CALLOUT (Project Link)                          */
+/* ─────────────────────────────────────────────────────── */
+.pipeline-project-link {
+    max-width: var(--max-width-narrow);
+    margin: 0 auto;
+}
+
+.pipeline-callout {
+    padding: var(--space-6);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    border-color: rgba(0, 240, 255, 0.2);
+}
+
+.pipeline-callout:hover {
+    border-color: rgba(0, 240, 255, 0.4);
+    box-shadow: var(--glow-cyan-sm);
+}
+
+.callout-icon {
+    font-size: var(--text-3xl);
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.callout-content h4 {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
+    color: var(--neon-cyan);
+    letter-spacing: var(--tracking-wider);
+    margin-bottom: var(--space-2);
+}
+
+.callout-content p {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* RESPONSIVE                                               */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .pipeline-row,
+    .pipeline-row.reverse {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .pipeline-connector {
+        width: 2px;
+        height: 30px;
+        min-width: unset;
+        max-width: unset;
+    }
+
+    .data-flow {
+        background: repeating-linear-gradient(
+            180deg,
+            var(--neon-cyan) 0px,
+            var(--neon-cyan) 8px,
+            transparent 8px,
+            transparent 16px
+        );
+        background-size: 100% 40px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pipeline-return-connector {
+        justify-content: center;
+        padding-right: 0;
+        height: 30px;
+    }
+
+    .node-body {
+        min-width: 160px;
+    }
+
+    .node-tooltip {
+        bottom: auto;
+        top: calc(100% + 10px);
+        left: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .node-body {
+        min-width: 120px;
+        padding: var(--space-4) var(--space-3);
+    }
+
+    .node-icon {
+        font-size: var(--text-xl);
+    }
+
+    .pipeline-callout {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-5);
+    }
+}

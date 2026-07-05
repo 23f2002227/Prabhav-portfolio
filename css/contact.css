@@ -1,0 +1,259 @@
+/* ═══════════════════════════════════════════════════════════
+   NEURAL NEXUS — Contact Section (Transmission Channel)
+   Terminal UI, channel links, footer enhancements
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────── */
+/* SECTION BACKGROUND                                       */
+/* ─────────────────────────────────────────────────────── */
+.contact-section {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 240, 255, 0.01) 50%,
+        var(--bg-void) 100%
+    );
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* TERMINAL CONTAINER                                       */
+/* ─────────────────────────────────────────────────────── */
+.terminal-container {
+    max-width: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* TERMINAL HEADER                                          */
+/* ─────────────────────────────────────────────────────── */
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+    background: rgba(15, 15, 30, 0.8);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.terminal-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+}
+
+.dot.red {
+    background: #ff5f57;
+    box-shadow: 0 0 4px rgba(255, 95, 87, 0.4);
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+    box-shadow: 0 0 4px rgba(255, 189, 46, 0.4);
+}
+
+.dot.green {
+    background: #28c840;
+    box-shadow: 0 0 4px rgba(40, 200, 64, 0.4);
+}
+
+.terminal-title {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    letter-spacing: var(--tracking-wide);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* TERMINAL BODY                                            */
+/* ─────────────────────────────────────────────────────── */
+.terminal-body {
+    padding: var(--space-6);
+}
+
+.terminal-output {
+    margin-bottom: var(--space-8);
+}
+
+.terminal-line {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+}
+
+.terminal-line .prompt {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.terminal-line .command {
+    color: var(--text-secondary);
+}
+
+/* Typing animation for terminal lines */
+.terminal-line .command.typing {
+    border-right: 2px solid var(--neon-cyan);
+    animation: cursor-blink 1s step-end infinite;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* TRANSMISSION CHANNELS                                    */
+/* ─────────────────────────────────────────────────────── */
+.transmission-channels {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.channel-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+.channel-link:hover {
+    transform: translateX(6px);
+    border-color: var(--glass-border-hover);
+    box-shadow: var(--glow-cyan-sm);
+    background: var(--glass-bg-hover);
+    text-shadow: none;
+}
+
+.channel-icon {
+    font-size: var(--text-2xl);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform var(--transition-base);
+}
+
+.channel-link:hover .channel-icon {
+    transform: scale(1.15);
+}
+
+.channel-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.channel-name {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    letter-spacing: var(--tracking-widest);
+}
+
+.channel-desc {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    letter-spacing: var(--tracking-wide);
+}
+
+.channel-arrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    transition: all var(--transition-base);
+}
+
+.channel-link:hover .channel-arrow {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+    transform: translateX(4px);
+}
+
+/* Individual channel hover colors */
+#channel-email:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+#channel-github:hover {
+    border-color: rgba(183, 75, 255, 0.3);
+    box-shadow: var(--glow-purple-sm);
+}
+
+#channel-github:hover .channel-arrow {
+    color: var(--neon-purple);
+    text-shadow: 0 0 5px rgba(183, 75, 255, 0.5);
+}
+
+#channel-linkedin:hover {
+    border-color: rgba(0, 168, 255, 0.3);
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.3);
+}
+
+#channel-linkedin:hover .channel-arrow {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px rgba(0, 168, 255, 0.5);
+}
+
+#channel-leetcode:hover {
+    border-color: rgba(255, 140, 0, 0.3);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+#channel-leetcode:hover .channel-arrow {
+    color: var(--neon-orange);
+    text-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* RESPONSIVE                                               */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .terminal-container {
+        margin: 0 auto;
+    }
+
+    .terminal-body {
+        padding: var(--space-4);
+    }
+
+    .terminal-header {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .channel-link {
+        padding: var(--space-3) var(--space-4);
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-line {
+        font-size: var(--text-xs);
+    }
+
+    .channel-name {
+        font-size: var(--text-xs);
+    }
+
+    .channel-icon {
+        font-size: var(--text-xl);
+    }
+
+    .channel-arrow {
+        display: none;
+    }
+}

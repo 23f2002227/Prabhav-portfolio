@@ -1,0 +1,434 @@
+/* ═══════════════════════════════════════════════════════════
+   NEURAL NEXUS — Quests Section
+   Quest board, quest cards, rarity filters, loot tags
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────── */
+/* SECTION BACKGROUND                                       */
+/* ─────────────────────────────────────────────────────── */
+.quests-section {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 240, 255, 0.015) 50%,
+        transparent 100%
+    );
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST FILTERS                                            */
+/* ─────────────────────────────────────────────────────── */
+.quest-filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-10);
+    flex-wrap: wrap;
+}
+
+.quest-filter {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: var(--space-2) var(--space-5);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.quest-filter:hover {
+    color: var(--neon-cyan);
+    background: var(--cyan-dim);
+    border-color: rgba(0, 240, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.quest-filter.active {
+    color: #fff;
+    background: rgba(0, 240, 255, 0.15);
+    border-color: var(--neon-cyan);
+    box-shadow: var(--glow-cyan-sm);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST GRID                                               */
+/* ─────────────────────────────────────────────────────── */
+.quest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST CARD                                               */
+/* ─────────────────────────────────────────────────────── */
+.quest-card {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+.quest-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Rarity-specific border/glow */
+.quest-card[data-rarity="legendary"] {
+    border-color: var(--rarity-legendary-border);
+}
+
+.quest-card[data-rarity="legendary"]:hover {
+    box-shadow: var(--glow-gold-md);
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.quest-card[data-rarity="epic"] {
+    border-color: var(--rarity-epic-border);
+}
+
+.quest-card[data-rarity="epic"]:hover {
+    box-shadow: var(--glow-purple-md);
+    border-color: rgba(183, 75, 255, 0.5);
+}
+
+.quest-card[data-rarity="rare"] {
+    border-color: var(--rarity-rare-border);
+}
+
+.quest-card[data-rarity="rare"]:hover {
+    box-shadow: 0 0 20px rgba(0, 168, 255, 0.3), 0 0 40px rgba(0, 168, 255, 0.1);
+    border-color: rgba(0, 168, 255, 0.5);
+}
+
+/* Rarity corner color overrides */
+.quest-card[data-rarity="legendary"] .card-corner.top-left,
+.quest-card[data-rarity="legendary"] .card-corner.top-right {
+    border-color: var(--rarity-legendary);
+}
+
+.quest-card[data-rarity="legendary"] .card-corner.bottom-left,
+.quest-card[data-rarity="legendary"] .card-corner.bottom-right {
+    border-color: var(--neon-orange);
+}
+
+.quest-card[data-rarity="epic"] .card-corner.top-left,
+.quest-card[data-rarity="epic"] .card-corner.top-right {
+    border-color: var(--rarity-epic);
+}
+
+.quest-card[data-rarity="epic"] .card-corner.bottom-left,
+.quest-card[data-rarity="epic"] .card-corner.bottom-right {
+    border-color: var(--neon-pink);
+}
+
+.quest-card[data-rarity="rare"] .card-corner.top-left,
+.quest-card[data-rarity="rare"] .card-corner.top-right {
+    border-color: var(--rarity-rare);
+}
+
+.quest-card[data-rarity="rare"] .card-corner.bottom-left,
+.quest-card[data-rarity="rare"] .card-corner.bottom-right {
+    border-color: var(--neon-cyan);
+}
+
+.quest-card[data-rarity="uncommon"] {
+    border-color: var(--rarity-uncommon-border);
+}
+
+.quest-card[data-rarity="uncommon"]:hover {
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.3), 0 0 40px rgba(46, 204, 113, 0.1);
+    border-color: rgba(46, 204, 113, 0.5);
+}
+
+.quest-card[data-rarity="uncommon"] .card-corner.top-left,
+.quest-card[data-rarity="uncommon"] .card-corner.top-right {
+    border-color: var(--rarity-uncommon);
+}
+
+.quest-card[data-rarity="uncommon"] .card-corner.bottom-left,
+.quest-card[data-rarity="uncommon"] .card-corner.bottom-right {
+    border-color: var(--rarity-uncommon);
+}
+
+.quest-card[data-rarity="common"] {
+    border-color: var(--rarity-common-border);
+}
+
+.quest-card[data-rarity="common"]:hover {
+    box-shadow: 0 0 20px rgba(136, 136, 170, 0.3), 0 0 40px rgba(136, 136, 170, 0.1);
+    border-color: rgba(136, 136, 170, 0.5);
+}
+
+.quest-card[data-rarity="common"] .card-corner.top-left,
+.quest-card[data-rarity="common"] .card-corner.top-right {
+    border-color: var(--rarity-common);
+}
+
+.quest-card[data-rarity="common"] .card-corner.bottom-left,
+.quest-card[data-rarity="common"] .card-corner.bottom-right {
+    border-color: var(--rarity-common);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST HEADER (Rarity + Status)                           */
+/* ─────────────────────────────────────────────────────── */
+.quest-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quest-rarity {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.rarity-stars {
+    font-size: var(--text-xs);
+    letter-spacing: 2px;
+}
+
+.rarity-label {
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+}
+
+/* Rarity color variants */
+.quest-rarity.legendary .rarity-stars,
+.quest-rarity.legendary .rarity-label {
+    color: var(--rarity-legendary);
+    text-shadow: var(--text-glow-gold);
+}
+
+.quest-rarity.epic .rarity-stars,
+.quest-rarity.epic .rarity-label {
+    color: var(--rarity-epic);
+    text-shadow: var(--text-glow-purple);
+}
+
+.quest-rarity.rare .rarity-stars,
+.quest-rarity.rare .rarity-label {
+    color: var(--rarity-rare);
+    text-shadow: 0 0 7px rgba(0, 168, 255, 0.8), 0 0 15px rgba(0, 168, 255, 0.4);
+}
+
+.quest-rarity.uncommon .rarity-stars,
+.quest-rarity.uncommon .rarity-label {
+    color: var(--rarity-uncommon);
+    text-shadow: 0 0 7px rgba(46, 204, 113, 0.8), 0 0 15px rgba(46, 204, 113, 0.4);
+}
+
+.quest-rarity.common .rarity-stars,
+.quest-rarity.common .rarity-label {
+    color: var(--rarity-common);
+    text-shadow: 0 0 7px rgba(136, 136, 170, 0.8), 0 0 15px rgba(136, 136, 170, 0.4);
+}
+
+/* Quest Status */
+.quest-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-family: var(--font-display);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wider);
+}
+
+.quest-status.completed {
+    color: var(--neon-green);
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.4);
+}
+
+.status-icon {
+    font-size: var(--text-sm);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST CONTENT                                            */
+/* ─────────────────────────────────────────────────────── */
+.quest-content {
+    flex: 1;
+}
+
+.quest-name {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-1);
+}
+
+.quest-tagline {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--space-4);
+}
+
+.quest-description {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+}
+
+/* Quest Features */
+.quest-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.feature-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--neon-cyan);
+    background: var(--cyan-dim);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    padding: 2px var(--space-3);
+    border-radius: var(--radius-full);
+    letter-spacing: var(--tracking-wide);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST FOOTER (Loot + XP)                                 */
+/* ─────────────────────────────────────────────────────── */
+.quest-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--glass-border);
+    gap: var(--space-4);
+}
+
+.quest-loot {
+    flex: 1;
+}
+
+.loot-label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: var(--space-2);
+}
+
+.loot-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+}
+
+.loot-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--neon-purple);
+    background: var(--purple-dim);
+    border: 1px solid rgba(183, 75, 255, 0.15);
+    padding: 2px var(--space-2);
+    border-radius: var(--radius-sm);
+    letter-spacing: var(--tracking-wide);
+}
+
+/* XP Reward */
+.quest-xp {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    white-space: nowrap;
+}
+
+.xp-icon {
+    font-size: var(--text-lg);
+    animation: neon-flicker 4s ease infinite;
+}
+
+.xp-amount {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
+    color: var(--neon-green);
+    text-shadow: 0 0 5px rgba(0, 255, 136, 0.4);
+    letter-spacing: var(--tracking-wider);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* QUEST CARD FILTER ANIMATION                              */
+/* ─────────────────────────────────────────────────────── */
+.quest-card.hidden {
+    display: none;
+}
+
+.quest-card.filter-out {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+    pointer-events: none;
+}
+
+.quest-card.filter-in {
+    animation: fade-in-up 0.5s ease forwards;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* RESPONSIVE                                               */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .quest-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .quest-card {
+        padding: var(--space-6);
+    }
+
+    .quest-name {
+        font-size: var(--text-lg);
+    }
+
+    .quest-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quest-filters {
+        gap: var(--space-2);
+        margin-bottom: var(--space-6);
+    }
+
+    .quest-filter {
+        font-size: var(--text-xs);
+        padding: var(--space-2) var(--space-3);
+    }
+}
+
+@media (max-width: 480px) {
+    .quest-card {
+        padding: var(--space-5);
+    }
+
+    .quest-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+}

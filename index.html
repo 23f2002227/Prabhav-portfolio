@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Prabhav Sharma — AI Engineer & ML Architect. Explore the RPG-style portfolio of an AI operative navigating the Neural Nexus.">
+    <meta name="keywords"
+        content="AI Engineer, Machine Learning, Portfolio, Prabhav Sharma, Backend Developer, PyTorch, FastAPI">
+    <meta name="author" content="Prabhav Sharma">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prabhav Sharma | The AI Engineer's Journey">
+    <meta property="og:description"
+        content="Explore the RPG-style portfolio of an AI operative navigating the Neural Nexus.">
+    <meta property="og:type" content="website">
+
+    <title>Prabhav Sharma | The AI Engineer's Journey — Neural Nexus</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/quests.css">
+    <link rel="stylesheet" href="css/achievements.css">
+    <link rel="stylesheet" href="css/pipeline.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- LOADING SCREEN                                  -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="glitch-text" data-text="NEURAL NEXUS">NEURAL NEXUS</span>
+            </div>
+            <div class="loading-bar-container">
+                <div class="loading-bar">
+                    <div id="loading-fill" class="loading-fill"></div>
+                </div>
+                <span id="loading-percent" class="loading-percent">0%</span>
+            </div>
+            <div id="loading-status" class="loading-status">
+                <span class="terminal-text">&gt; Initializing system...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PARTICLE CANVAS (Background)                    -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SCAN LINES OVERLAY                              -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="scan-lines"></div>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- NAVIGATION HUD                                  -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <nav id="hud-nav" class="hud-nav">
+        <div class="nav-brand">
+            <div class="nav-logo">
+                <span class="logo-text">PS</span>
+            </div>
+            <span class="nav-title">NEURAL<span class="accent-cyan">NEXUS</span></span>
+        </div>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#hero" class="nav-link active" data-section="hero">
+                <span class="nav-diamond">◆</span>
+                <span>Profile</span>
+            </a>
+            <a href="#skills" class="nav-link" data-section="skills">
+                <span class="nav-diamond">◆</span>
+                <span>Skills</span>
+            </a>
+            <a href="#quests" class="nav-link" data-section="quests">
+                <span class="nav-diamond">◆</span>
+                <span>Quests</span>
+            </a>
+            <a href="#achievements" class="nav-link" data-section="achievements">
+                <span class="nav-diamond">◆</span>
+                <span>Trophies</span>
+            </a>
+            <a href="#pipeline" class="nav-link" data-section="pipeline">
+                <span class="nav-diamond">◆</span>
+                <span>Forge</span>
+            </a>
+            <a href="#contact" class="nav-link" data-section="contact">
+                <span class="nav-diamond">◆</span>
+                <span>Transmit</span>
+            </a>
+        </div>
+
+        <div class="nav-status">
+            <span class="nav-level">LVL 21</span>
+            <div class="nav-xp-bar">
+                <div class="nav-xp-fill"></div>
+            </div>
+        </div>
+
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- MAIN CONTENT                                    -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <main>
+
+        <!-- ═════════════════════════════════════════ -->
+        <!-- SECTION 1: HERO / CHARACTER PROFILE       -->
+        <!-- ═════════════════════════════════════════ -->
+        <section id="hero" class="section hero-section">
+            <div class="container">
+                <div class="hero-layout">
+
+                    <!-- Character Card -->
+                    <div class="character-card glass-panel animate-on-scroll">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="character-portrait">
+
+                            <div class="portrait-frame">
+
+                                <!-- Neon Glow -->
+                                <div class="portrait-glow"></div>
+
+                                <!-- Animated Border -->
+                                <div class="portrait-ring"></div>
+
+                                <!-- Cyber Image -->
+                                <div class="portrait-avatar">
+                                    <img src="avatar.jpg" alt="Prabhav Sharma" class="avatar-image">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="character-info">
+                            <h1 class="character-name glitch-text" data-text="PRABHAV SHARMA">PRABHAV SHARMA</h1>
+                            <div class="character-title">
+                                <span class="title-decorator">«</span>
+                                AI Engineer &bull; ML Architect &bull; Backend Developer
+                                <span class="title-decorator">»</span>
+                            </div>
+                        </div>
+
+                        <div class="character-level">
+                            <div class="level-info">
+                                <span class="level-badge">LVL 21</span>
+                                <span class="level-class">AI Engineer Class</span>
+                                <span class="level-xp">XP 8,500 / 10,000</span>
+                            </div>
+                            <div class="xp-bar">
+                                <div class="xp-fill" data-value="85"></div>
+                                <div class="xp-shimmer"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Panel -->
+                    <div class="stats-panel glass-panel animate-on-scroll">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <h3 class="panel-title">
+                            <span class="panel-icon">◈</span> CHARACTER STATS
+                        </h3>
+
+                        <div class="stats-grid">
+                            <div class="stat-item" data-stat="intelligence">
+                                <div class="stat-header">
+                                    <span class="stat-icon">🧠</span>
+                                    <span class="stat-label">Intelligence</span>
+                                    <span class="stat-value" data-target="95">0</span>
+                                </div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-bar-fill" data-value="95" style="--stat-color: var(--neon-cyan)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item" data-stat="engineering">
+                                <div class="stat-header">
+                                    <span class="stat-icon">⚙️</span>
+                                    <span class="stat-label">Engineering</span>
+                                    <span class="stat-value" data-target="92">0</span>
+                                </div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-bar-fill" data-value="92" style="--stat-color: var(--neon-purple)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item" data-stat="ml">
+                                <div class="stat-header">
+                                    <span class="stat-icon">🤖</span>
+                                    <span class="stat-label">Machine Learning</span>
+                                    <span class="stat-value" data-target="90">0</span>
+                                </div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-bar-fill" data-value="90" style="--stat-color: var(--neon-cyan)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item" data-stat="problem-solving">
+                                <div class="stat-header">
+                                    <span class="stat-icon">🧩</span>
+                                    <span class="stat-label">Problem Solving</span>
+                                    <span class="stat-value" data-target="88">0</span>
+                                </div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-bar-fill" data-value="88" style="--stat-color: var(--neon-purple)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item" data-stat="creativity">
+                                <div class="stat-header">
+                                    <span class="stat-icon">✨</span>
+                                    <span class="stat-label">Creativity</span>
+                                    <span class="stat-value" data-target="85">0</span>
+                                </div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-bar-fill" data-value="85" style="--stat-color: var(--neon-pink)">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item" data-stat="leadership">
+                                <div class="stat-header">
+                                    <span class="stat-icon">👑</span>
+                                    <span class="stat-label">Leadership</span>
+                                    <span class="stat-value" data-target="80">0</span>
+                                </div>
+                                <div class="stat-bar-container">
+                                    <div class="stat-bar-fill" data-value="80" style="--stat-color: var(--neon-green)">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-footer">
+                            <div class="stat-highlight">
+                                <span class="highlight-icon">⚔️</span>
+                                <span class="highlight-value" data-target="185">0</span>
+                                <span class="highlight-label">Problems Conquered</span>
+                            </div>
+                            <div class="stat-highlight">
+                                <span class="highlight-icon">🎯</span>
+                                <span class="highlight-value" data-target="3">0</span>
+                                <span class="highlight-label">Quests Completed</span>
+                            </div>
+                            <div class="stat-highlight">
+                                <span class="highlight-icon">🏆</span>
+                                <span class="highlight-value" data-target="4">0</span>
+                                <span class="highlight-label">Achievements</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bio Panel -->
+                    <div class="bio-panel glass-panel animate-on-scroll">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <h3 class="panel-title">
+                            <span class="panel-icon">◈</span> OPERATIVE DOSSIER
+                        </h3>
+                        <div class="bio-content">
+                            <p class="bio-text">
+                                An AI Operative specializing in Machine Learning systems and Backend Architecture.
+                                Currently advancing through the <span class="accent-cyan">Bangalore Institute of
+                                    Technology</span>
+                                training program (B.E. in AI &amp; ML) while simultaneously completing the elite
+                                <span class="accent-purple">IIT Madras Diploma</span> in Programming and Data Science.
+                            </p>
+                            <p class="bio-text">
+                                Known for building real-world intelligent systems rather than academic simulations.
+                                Has conquered <span class="accent-cyan">185+ algorithmic challenges</span> on LeetCode
+                                and completed <span class="accent-purple">3 major field operations</span> spanning
+                                ML pipelines, full-stack platforms, and healthcare systems.
+                            </p>
+                            <div class="bio-mission">
+                                <span class="mission-label">⚡ PRIMARY DIRECTIVE:</span>
+                                <span class="mission-text">Become a world-class AI Engineer capable of building scalable
+                                    AI products and intelligent systems.</span>
+                            </div>
+                        </div>
+                        <div class="bio-tags">
+                            <span class="bio-tag">B.E. AI &amp; ML — BIT (2023–Present)</span>
+                            <span class="bio-tag">Diploma — IIT Madras (2023–Present)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════ -->
+        <!-- SECTION 2: SKILL TREE                     -->
+        <!-- ═════════════════════════════════════════ -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-act">// ACT II — THE TRAINING GROUNDS</span>
+                    <h2 class="section-title">
+                        <span class="title-icon">🌳</span>
+                        SKILL TREE
+                    </h2>
+                    <p class="section-subtitle">Abilities unlocked throughout the journey. Hover to inspect.</p>
+                </div>
+
+                <div class="skill-categories animate-on-scroll">
+                    <button class="skill-tab active" data-category="all">
+                        <span class="tab-icon">◈</span> All Paths
+                    </button>
+                    <button class="skill-tab" data-category="programming">
+                        <span class="tab-icon">💻</span> Programming
+                    </button>
+                    <button class="skill-tab" data-category="ml">
+                        <span class="tab-icon">🤖</span> Machine Learning
+                    </button>
+                    <button class="skill-tab" data-category="dl">
+                        <span class="tab-icon">🧠</span> Deep Learning
+                    </button>
+                    <button class="skill-tab" data-category="backend">
+                        <span class="tab-icon">⚙️</span> Backend
+                    </button>
+                    <button class="skill-tab" data-category="frontend">
+                        <span class="tab-icon">🎨</span> Frontend
+                    </button>
+                    <button class="skill-tab" data-category="database">
+                        <span class="tab-icon">🗄️</span> Databases
+                    </button>
+                    <button class="skill-tab" data-category="tools">
+                        <span class="tab-icon">🔧</span> Tools
+                    </button>
+                    <button class="skill-tab" data-category="cs">
+                        <span class="tab-icon">📚</span> Core CS
+                    </button>
+                    <button class="skill-tab" data-category="ai">
+                        <span class="tab-icon">🔮</span> AI Systems
+                    </button>
+                </div>
+
+                <div id="skill-tree-container" class="skill-tree-container animate-on-scroll">
+                    <!-- Dynamically generated by skill-tree.js -->
+                </div>
+
+                <div class="skill-legend animate-on-scroll">
+                    <div class="legend-item">
+                        <span class="legend-dot mastered"></span>
+                        <span>Mastered</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot unlocked"></span>
+                        <span>Unlocked</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot locked"></span>
+                        <span>Locked (Future)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════ -->
+        <!-- SECTION 3: QUEST BOARD                    -->
+        <!-- ═════════════════════════════════════════ -->
+        <section id="quests" class="section quests-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-act">// ACT III — THE QUEST BOARD</span>
+                    <h2 class="section-title">
+                        <span class="title-icon">🗺️</span>
+                        COMPLETED QUESTS
+                    </h2>
+                    <p class="section-subtitle">Field operations and missions accomplished.</p>
+                </div>
+
+                <div class="quest-filters animate-on-scroll">
+                    <button class="quest-filter active" data-filter="all">All Quests</button>
+                    <button class="quest-filter" data-filter="legendary">👑 Legendary</button>
+                    <button class="quest-filter" data-filter="epic">⚔️ Epic</button>
+                    <button class="quest-filter" data-filter="rare">💎 Rare</button>
+                </div>
+
+                <div class="quest-grid">
+
+                    <!-- Quest 1: Placement Portal — LEGENDARY -->
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="legendary"
+                        id="quest-placement-portal">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="quest-header">
+                            <div class="quest-rarity legendary">
+                                <span class="rarity-stars">★★★★★</span>
+                                <span class="rarity-label">LEGENDARY</span>
+                            </div>
+                            <div class="quest-status completed">
+                                <span class="status-icon">✓</span>
+                                <span>COMPLETED</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-content">
+                            <h3 class="quest-name">🏰 PLACEMENT PORTAL</h3>
+                            <p class="quest-tagline">The Institute's Gateway</p>
+                            <p class="quest-description">
+                                A full-stack institute placement management system featuring role-based authentication,
+                                student and recruiter portals, resume management, placement drive orchestration,
+                                real-time notifications, and comprehensive reporting dashboards.
+                            </p>
+                            <div class="quest-features">
+                                <span class="feature-tag">Role-Based Auth</span>
+                                <span class="feature-tag">Student Portal</span>
+                                <span class="feature-tag">Recruiter Portal</span>
+                                <span class="feature-tag">Resume Uploads</span>
+                                <span class="feature-tag">Drive Management</span>
+                                <span class="feature-tag">Notifications</span>
+                                <span class="feature-tag">Reporting</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-footer">
+                            <div class="quest-loot">
+                                <span class="loot-label">TECH LOOT:</span>
+                                <div class="loot-tags">
+                                    <span class="loot-tag">Flask</span>
+                                    <span class="loot-tag">Vue.js</span>
+                                    <span class="loot-tag">Bootstrap</span>
+                                    <span class="loot-tag">SQLite</span>
+                                    <span class="loot-tag">Redis</span>
+                                    <span class="loot-tag">Celery</span>
+                                </div>
+                            </div>
+                            <div class="quest-xp">
+                                <span class="xp-icon">⚡</span>
+                                <span class="xp-amount">+3,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quest 2: ChurnMap — EPIC -->
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="epic" id="quest-churnmap">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="quest-header">
+                            <div class="quest-rarity epic">
+                                <span class="rarity-stars">★★★★</span>
+                                <span class="rarity-label">EPIC</span>
+                            </div>
+                            <div class="quest-status completed">
+                                <span class="status-icon">✓</span>
+                                <span>COMPLETED</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-content">
+                            <h3 class="quest-name">🗺️ CHURNMAP</h3>
+                            <p class="quest-tagline">The Prediction Engine</p>
+                            <p class="quest-description">
+                                An end-to-end customer segmentation and churn prediction platform. Features RFM
+                                analysis,
+                                K-Means clustering for customer segmentation, XGBoost for churn prediction, real-time
+                                inference API, productionized ML pipeline with reproducible training workflows.
+                            </p>
+                            <div class="quest-features">
+                                <span class="feature-tag">RFM Analysis</span>
+                                <span class="feature-tag">Customer Segmentation</span>
+                                <span class="feature-tag">Churn Prediction</span>
+                                <span class="feature-tag">Real-Time Predictions</span>
+                                <span class="feature-tag">ML Pipeline</span>
+                                <span class="feature-tag">Reproducible Workflows</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-footer">
+                            <div class="quest-loot">
+                                <span class="loot-label">TECH LOOT:</span>
+                                <div class="loot-tags">
+                                    <span class="loot-tag">FastAPI</span>
+                                    <span class="loot-tag">Streamlit</span>
+                                    <span class="loot-tag">Docker</span>
+                                    <span class="loot-tag">MLflow</span>
+                                    <span class="loot-tag">XGBoost</span>
+                                    <span class="loot-tag">K-Means</span>
+                                </div>
+                            </div>
+                            <div class="quest-xp">
+                                <span class="xp-icon">⚡</span>
+                                <span class="xp-amount">+3,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quest 3: Hospital Management — RARE -->
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="rare" id="quest-hospital-mgmt">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="quest-header">
+                            <div class="quest-rarity rare">
+                                <span class="rarity-stars">★★★</span>
+                                <span class="rarity-label">RARE</span>
+                            </div>
+                            <div class="quest-status completed">
+                                <span class="status-icon">✓</span>
+                                <span>COMPLETED</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-content">
+                            <h3 class="quest-name">🏥 HOSPITAL MANAGEMENT SYSTEM</h3>
+                            <p class="quest-tagline">The Healer's Archive</p>
+                            <p class="quest-description">
+                                A backend-focused healthcare management platform with role-based authentication,
+                                comprehensive CRUD operations, thoughtful database design, and robust backend
+                                engineering foundations.
+                            </p>
+                            <div class="quest-features">
+                                <span class="feature-tag">Role-Based Auth</span>
+                                <span class="feature-tag">CRUD Operations</span>
+                                <span class="feature-tag">Database Design</span>
+                                <span class="feature-tag">Backend Engineering</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-footer">
+                            <div class="quest-loot">
+                                <span class="loot-label">TECH LOOT:</span>
+                                <div class="loot-tags">
+                                    <span class="loot-tag">Flask</span>
+                                    <span class="loot-tag">SQLAlchemy</span>
+                                    <span class="loot-tag">SQLite</span>
+                                </div>
+                            </div>
+                            <div class="quest-xp">
+                                <span class="xp-icon">⚡</span>
+                                <span class="xp-amount">+2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════ -->
+        <!-- SECTION 4: ACHIEVEMENTS                   -->
+        <!-- ═════════════════════════════════════════ -->
+        <section id="achievements" class="section achievements-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-act">// ACT IV — HALL OF GLORY</span>
+                    <h2 class="section-title">
+                        <span class="title-icon">🏆</span>
+                        ACHIEVEMENTS
+                    </h2>
+                    <p class="section-subtitle">Trophies and milestones earned along the journey.</p>
+                </div>
+
+                <div class="achievements-grid">
+
+                    <div class="achievement-card glass-panel animate-on-scroll" data-achievement="hackathon">
+                        <div class="achievement-glow"></div>
+                        <div class="achievement-icon">
+                            <span class="icon-emoji">🏆</span>
+                            <div class="icon-ring gold"></div>
+                        </div>
+                        <div class="achievement-info">
+                            <h3 class="achievement-title">CHAMPION</h3>
+                            <p class="achievement-desc">Winner — Cellverse Hackathon</p>
+                            <span class="achievement-rarity legendary">LEGENDARY</span>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-panel animate-on-scroll" data-achievement="leetcode">
+                        <div class="achievement-glow"></div>
+                        <div class="achievement-icon">
+                            <span class="icon-emoji">⚔️</span>
+                            <div class="icon-ring cyan"></div>
+                        </div>
+                        <div class="achievement-info">
+                            <h3 class="achievement-title">ALGORITHM SLAYER</h3>
+                            <p class="achievement-desc">Solved 185+ LeetCode Problems</p>
+                            <span class="achievement-rarity epic">EPIC</span>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-panel animate-on-scroll" data-achievement="iit-madras">
+                        <div class="achievement-glow"></div>
+                        <div class="achievement-icon">
+                            <span class="icon-emoji">🎓</span>
+                            <div class="icon-ring purple"></div>
+                        </div>
+                        <div class="achievement-info">
+                            <h3 class="achievement-title">ELITE SCHOLAR</h3>
+                            <p class="achievement-desc">IIT Madras Diploma — Programming &amp; Data Science</p>
+                            <span class="achievement-rarity epic">EPIC</span>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-panel animate-on-scroll" data-achievement="bit">
+                        <div class="achievement-glow"></div>
+                        <div class="achievement-icon">
+                            <span class="icon-emoji">🎓</span>
+                            <div class="icon-ring green"></div>
+                        </div>
+                        <div class="achievement-info">
+                            <h3 class="achievement-title">AI APPRENTICE</h3>
+                            <p class="achievement-desc">B.E. in AI &amp; ML — Bangalore Institute of Technology</p>
+                            <span class="achievement-rarity rare">RARE</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════ -->
+        <!-- SECTION 5: ML PIPELINE / NEURAL FORGE     -->
+        <!-- ═════════════════════════════════════════ -->
+        <section id="pipeline" class="section pipeline-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-act">// ACT V — THE NEURAL FORGE</span>
+                    <h2 class="section-title">
+                        <span class="title-icon">🔮</span>
+                        ML PIPELINE
+                    </h2>
+                    <p class="section-subtitle">The architecture of intelligence. How models are forged.</p>
+                </div>
+
+                <div class="pipeline-visualization animate-on-scroll">
+                    <div class="pipeline-row">
+                        <div class="pipeline-node" data-stage="collect">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">📊</span>
+                                <span class="node-label">Data Collection</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>Gathering raw data from multiple sources. Defining data requirements and quality
+                                    standards.</p>
+                                <span class="tooltip-tech">Pandas &bull; SQL &bull; APIs</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <div class="data-flow"></div>
+                        </div>
+
+                        <div class="pipeline-node" data-stage="preprocess">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">🔧</span>
+                                <span class="node-label">Preprocessing</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>Cleaning, handling missing values, encoding categorical features, normalization.</p>
+                                <span class="tooltip-tech">NumPy &bull; Pandas &bull; Scikit-learn</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <div class="data-flow"></div>
+                        </div>
+
+                        <div class="pipeline-node" data-stage="feature">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">⚗️</span>
+                                <span class="node-label">Feature Engineering</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>RFM analysis, feature selection, dimensionality reduction, creating meaningful
+                                    representations.</p>
+                                <span class="tooltip-tech">Feature Engineering &bull; Domain Knowledge</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <div class="data-flow"></div>
+                        </div>
+
+                        <div class="pipeline-node" data-stage="train">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">🧠</span>
+                                <span class="node-label">Model Training</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>Training ML models — XGBoost, Neural Networks, K-Means clustering. Hyperparameter
+                                    tuning.</p>
+                                <span class="tooltip-tech">PyTorch &bull; XGBoost &bull; Scikit-learn</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-return-connector">
+                        <div class="data-flow reverse"></div>
+                    </div>
+
+                    <div class="pipeline-row reverse">
+                        <div class="pipeline-node" data-stage="evaluate">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">📈</span>
+                                <span class="node-label">Evaluation</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>Model performance metrics, cross-validation, A/B testing, confusion matrices.</p>
+                                <span class="tooltip-tech">MLflow &bull; Scikit-learn Metrics</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <div class="data-flow"></div>
+                        </div>
+
+                        <div class="pipeline-node" data-stage="deploy">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">🚀</span>
+                                <span class="node-label">Deployment</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>Containerized deployment with FastAPI endpoints, Docker orchestration, real-time
+                                    inference.</p>
+                                <span class="tooltip-tech">FastAPI &bull; Docker &bull; REST APIs</span>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-connector">
+                            <div class="data-flow"></div>
+                        </div>
+
+                        <div class="pipeline-node" data-stage="monitor">
+                            <div class="node-pulse"></div>
+                            <div class="node-body">
+                                <span class="node-icon">📡</span>
+                                <span class="node-label">Monitoring</span>
+                            </div>
+                            <div class="node-tooltip">
+                                <p>Model drift detection, performance tracking, automated retraining pipelines.</p>
+                                <span class="tooltip-tech">MLflow &bull; Logging &bull; Dashboards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipeline-project-link animate-on-scroll">
+                    <div class="glass-panel pipeline-callout">
+                        <span class="callout-icon">🗺️</span>
+                        <div class="callout-content">
+                            <h4>CHURNMAP — Live ML Pipeline</h4>
+                            <p>This exact pipeline architecture powers the ChurnMap project: customer segmentation via
+                                K-Means clustering + churn prediction via XGBoost, deployed through FastAPI with MLflow
+                                experiment tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════ -->
+        <!-- SECTION 6: CONTACT / TRANSMISSION         -->
+        <!-- ═════════════════════════════════════════ -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-act">// ACT VI — TRANSMISSION CHANNEL</span>
+                    <h2 class="section-title">
+                        <span class="title-icon">📡</span>
+                        CONTACT
+                    </h2>
+                    <p class="section-subtitle">Establish a secure connection.</p>
+                </div>
+
+                <div class="terminal-container glass-panel animate-on-scroll">
+                    <div class="card-corner top-left"></div>
+                    <div class="card-corner top-right"></div>
+                    <div class="card-corner bottom-left"></div>
+                    <div class="card-corner bottom-right"></div>
+
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="terminal-title">neural-nexus@prabhav ~ %</span>
+                    </div>
+
+                    <div class="terminal-body">
+                        <div id="terminal-output" class="terminal-output">
+                            <div class="terminal-line">
+                                <span class="prompt">&gt;</span>
+                                <span class="command" id="terminal-line-1">Welcome to the Neural Nexus transmission
+                                    channel.</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">&gt;</span>
+                                <span class="command" id="terminal-line-2">Ready to establish connection with Prabhav
+                                    Sharma.</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">&gt;</span>
+                                <span class="command" id="terminal-line-3">Select a transmission channel below...</span>
+                            </div>
+                        </div>
+
+                        <div class="transmission-channels">
+                            <a href="mailto:prabhavsharma30@gmail.com" class="channel-link glass-panel"
+                                id="channel-email">
+                                <span class="channel-icon">📧</span>
+                                <div class="channel-info">
+                                    <span class="channel-name">EMAIL</span>
+                                    <span class="channel-desc">Send a direct transmission</span>
+                                </div>
+                                <span class="channel-arrow">→</span>
+                            </a>
+                            <a href="https://github.com/23f2002227" target="_blank" rel="noopener noreferrer"
+                                class="channel-link glass-panel" id="channel-github">
+                                <span class="channel-icon">💻</span>
+                                <div class="channel-info">
+                                    <span class="channel-name">GITHUB</span>
+                                    <span class="channel-desc">View source repositories</span>
+                                </div>
+                                <span class="channel-arrow">→</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/prabhav-sharma-8061452b9/" target="_blank"
+                                rel="noopener noreferrer" class="channel-link glass-panel" id="channel-linkedin">
+                                <span class="channel-icon">🔗</span>
+                                <div class="channel-info">
+                                    <span class="channel-name">LINKEDIN</span>
+                                    <span class="channel-desc">Professional network</span>
+                                </div>
+                                <span class="channel-arrow">→</span>
+                            </a>
+                            <a href="https://leetcode.com/u/prabhavsharma456/" target="_blank" rel="noopener noreferrer"
+                                class="channel-link glass-panel" id="channel-leetcode">
+                                <span class="channel-icon">⚔️</span>
+                                <div class="channel-info">
+                                    <span class="channel-name">LEETCODE</span>
+                                    <span class="channel-desc">185+ problems conquered</span>
+                                </div>
+                                <span class="channel-arrow">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- FOOTER                                          -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-line"></div>
+            <p class="footer-text">
+                <span class="accent-cyan">NEURAL NEXUS</span> — Designed &amp; Built by
+                <span class="accent-purple">Prabhav Sharma</span>
+            </p>
+            <p class="footer-subtext">
+                &copy; 2026 — All quests completed. All achievements unlocked.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- SCRIPTS                                         -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <script src="js/particles.js"></script>
+    <script src="js/stats-counter.js"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/skill-tree.js"></script>
+    <script src="js/quest-board.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

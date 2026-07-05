@@ -1,0 +1,266 @@
+/* ═══════════════════════════════════════════════════════════
+   NEURAL NEXUS — Achievements Section
+   Achievement cards, icon rings, rarity badges
+   ═══════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────── */
+/* SECTION BACKGROUND                                       */
+/* ─────────────────────────────────────────────────────── */
+.achievements-section {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(255, 215, 0, 0.01) 50%,
+        transparent 100%
+    );
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* ACHIEVEMENTS GRID                                        */
+/* ─────────────────────────────────────────────────────── */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* ACHIEVEMENT CARD                                         */
+/* ─────────────────────────────────────────────────────── */
+.achievement-card {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-5);
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.achievement-card:hover {
+    transform: translateY(-6px) scale(1.02);
+}
+
+/* Background glow effect */
+.achievement-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 240, 255, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+    transition: opacity var(--transition-slow);
+    opacity: 0;
+}
+
+.achievement-card:hover .achievement-glow {
+    opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* ACHIEVEMENT ICON                                         */
+/* ─────────────────────────────────────────────────────── */
+.achievement-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-emoji {
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+    transition: transform var(--transition-base);
+}
+
+.achievement-card:hover .icon-emoji {
+    transform: scale(1.15);
+}
+
+/* Icon Ring */
+.icon-ring {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    animation: ring-rotate 10s linear infinite;
+    z-index: 1;
+}
+
+.icon-ring.gold {
+    background: conic-gradient(from 0deg, var(--neon-gold), var(--neon-orange), var(--neon-gold)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.icon-ring.cyan {
+    background: conic-gradient(from 0deg, var(--neon-cyan), var(--neon-blue), var(--neon-cyan)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.icon-ring.purple {
+    background: conic-gradient(from 0deg, var(--neon-purple), var(--neon-pink), var(--neon-purple)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.icon-ring.green {
+    background: conic-gradient(from 0deg, var(--neon-green), var(--neon-cyan), var(--neon-green)) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* ACHIEVEMENT INFO                                         */
+/* ─────────────────────────────────────────────────────── */
+.achievement-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.achievement-title {
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    color: var(--text-primary);
+    letter-spacing: var(--tracking-wider);
+}
+
+.achievement-desc {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+}
+
+/* Rarity Badge */
+.achievement-rarity {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    margin-top: var(--space-2);
+}
+
+.achievement-rarity.legendary {
+    color: var(--rarity-legendary);
+    background: var(--rarity-legendary-bg);
+    border: 1px solid var(--rarity-legendary-border);
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+.achievement-rarity.epic {
+    color: var(--rarity-epic);
+    background: var(--rarity-epic-bg);
+    border: 1px solid var(--rarity-epic-border);
+    text-shadow: 0 0 5px rgba(183, 75, 255, 0.3);
+}
+
+.achievement-rarity.rare {
+    color: var(--rarity-rare);
+    background: var(--rarity-rare-bg);
+    border: 1px solid var(--rarity-rare-border);
+    text-shadow: 0 0 5px rgba(0, 168, 255, 0.3);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* HOVER GLOW SPECIFICS                                     */
+/* ─────────────────────────────────────────────────────── */
+.achievement-card[data-achievement="hackathon"]:hover {
+    box-shadow: var(--glow-gold-md);
+    border-color: var(--rarity-legendary-border);
+}
+
+.achievement-card[data-achievement="hackathon"] .achievement-glow {
+    background: radial-gradient(circle at center, rgba(255, 215, 0, 0.06) 0%, transparent 50%);
+}
+
+.achievement-card[data-achievement="leetcode"]:hover {
+    box-shadow: var(--glow-cyan-md);
+    border-color: rgba(0, 240, 255, 0.3);
+}
+
+.achievement-card[data-achievement="leetcode"] .achievement-glow {
+    background: radial-gradient(circle at center, rgba(0, 240, 255, 0.06) 0%, transparent 50%);
+}
+
+.achievement-card[data-achievement="iit-madras"]:hover {
+    box-shadow: var(--glow-purple-md);
+    border-color: var(--rarity-epic-border);
+}
+
+.achievement-card[data-achievement="iit-madras"] .achievement-glow {
+    background: radial-gradient(circle at center, rgba(183, 75, 255, 0.06) 0%, transparent 50%);
+}
+
+.achievement-card[data-achievement="bit"]:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.2), 0 0 40px rgba(0, 255, 136, 0.1);
+    border-color: rgba(0, 255, 136, 0.3);
+}
+
+.achievement-card[data-achievement="bit"] .achievement-glow {
+    background: radial-gradient(circle at center, rgba(0, 255, 136, 0.06) 0%, transparent 50%);
+}
+
+/* ─────────────────────────────────────────────────────── */
+/* RESPONSIVE                                               */
+/* ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--space-4);
+    }
+
+    .achievement-card {
+        padding: var(--space-6);
+    }
+
+    .achievement-title {
+        font-size: var(--text-base);
+    }
+}
+
+@media (max-width: 480px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-card {
+        flex-direction: row;
+        text-align: left;
+        padding: var(--space-5);
+    }
+
+    .achievement-info {
+        align-items: flex-start;
+    }
+
+    .achievement-icon {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+    }
+
+    .icon-emoji {
+        font-size: 2rem;
+    }
+}
