@@ -17,6 +17,9 @@
     <meta property="og:type" content="website">
 
     <title>Prabhav Sharma | The AI Engineer's Journey — Neural Nexus</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="avatar.jpg" type="image/jpeg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -334,7 +337,7 @@
                 <div class="section-header animate-on-scroll">
                     <span class="section-act">// ACT II — THE TRAINING GROUNDS</span>
                     <h2 class="section-title">
-                        <span class="title-icon">🌳</span>
+                        <span class="title-icon"></span>
                         SKILL TREE
                     </h2>
                     <p class="section-subtitle">Abilities unlocked throughout the journey. Hover to inspect.</p>
@@ -402,7 +405,7 @@
                 <div class="section-header animate-on-scroll">
                     <span class="section-act">// ACT III — THE QUEST BOARD</span>
                     <h2 class="section-title">
-                        <span class="title-icon">🗺️</span>
+                        <span class="title-icon"></span>
                         COMPLETED QUESTS
                     </h2>
                     <p class="section-subtitle">Field operations and missions accomplished.</p>
@@ -413,12 +416,14 @@
                     <button class="quest-filter" data-filter="legendary">👑 Legendary</button>
                     <button class="quest-filter" data-filter="epic">⚔️ Epic</button>
                     <button class="quest-filter" data-filter="rare">💎 Rare</button>
+                    <button class="quest-filter" data-filter="uncommon">🌿 Uncommon</button>
                 </div>
 
                 <div class="quest-grid">
 
                     <!-- Quest 1: Placement Portal — LEGENDARY -->
                     <div class="quest-card glass-panel animate-on-scroll" data-rarity="legendary"
+                        data-link="https://placement-portal-gefc.onrender.com/"
                         id="quest-placement-portal">
                         <div class="card-corner top-left"></div>
                         <div class="card-corner top-right"></div>
@@ -475,7 +480,7 @@
                     </div>
 
                     <!-- Quest 2: ChurnMap — EPIC -->
-                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="epic" id="quest-churnmap">
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="epic" data-link="https://github.com/23f2002227/ChurnMap" id="quest-churnmap">
                         <div class="card-corner top-left"></div>
                         <div class="card-corner top-right"></div>
                         <div class="card-corner bottom-left"></div>
@@ -531,7 +536,7 @@
                     </div>
 
                     <!-- Quest 3: Hospital Management — RARE -->
-                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="rare" id="quest-hospital-mgmt">
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="rare" data-link="https://github.com/23f2002227/hospital-management-system" id="quest-hospital-mgmt">
                         <div class="card-corner top-left"></div>
                         <div class="card-corner top-right"></div>
                         <div class="card-corner bottom-left"></div>
@@ -580,6 +585,169 @@
                         </div>
                     </div>
 
+                    <!-- Quest 4: Pronexa AI — UNCOMMON -->
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="uncommon" data-link="https://huggingface.co/spaces/prabhav456/pronexa-ai-web" id="quest-pronexa-ai">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="quest-header">
+                            <div class="quest-rarity uncommon">
+                                <span class="rarity-stars">★★</span>
+                                <span class="rarity-label">UNCOMMON</span>
+                            </div>
+                            <div class="quest-status completed">
+                                <span class="status-icon">✓</span>
+                                <span>COMPLETED</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-content">
+                            <h3 class="quest-name">🎙️ PRONEXA AI</h3>
+                            <p class="quest-tagline">The Voice Alchemist</p>
+                            <p class="quest-description">
+                                A Flask-based web app for English pronunciation assessment: users upload a 30–45 second
+                                recording, the app validates and normalizes audio (FFmpeg → 16 kHz mono WAV),
+                                transcribes
+                                it locally with Whisper, calculates deterministic pronunciation metrics and an overall
+                                score, and optionally requests qualitative JSON feedback from Gemini.
+                            </p>
+                            <div class="quest-features">
+                                <span class="feature-tag">Audio Processing</span>
+                                <span class="feature-tag">Local Transcription</span>
+                                <span class="feature-tag">Pronunciation Scoring</span>
+                                <span class="feature-tag">AI Feedback</span>
+                                <span class="feature-tag">Waveform Preview</span>
+                                <span class="feature-tag">Privacy-Focused</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-footer">
+                            <div class="quest-loot">
+                                <span class="loot-label">TECH LOOT:</span>
+                                <div class="loot-tags">
+                                    <span class="loot-tag">Flask</span>
+                                    <span class="loot-tag">Whisper</span>
+                                    <span class="loot-tag">Gemini</span>
+                                    <span class="loot-tag">FFmpeg</span>
+                                    <span class="loot-tag">Tailwind</span>
+                                    <span class="loot-tag">Docker</span>
+                                </div>
+                            </div>
+                            <div class="quest-xp">
+                                <span class="xp-icon">⚡</span>
+                                <span class="xp-amount">+2,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quest 5: VocabSnap — UNCOMMON -->
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="uncommon" data-link="https://github.com/23f2002227/VocabSnap" id="quest-vocabsnap">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="quest-header">
+                            <div class="quest-rarity uncommon">
+                                <span class="rarity-stars">★★</span>
+                                <span class="rarity-label">UNCOMMON</span>
+                            </div>
+                            <div class="quest-status completed">
+                                <span class="status-icon">✓</span>
+                                <span>COMPLETED</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-content">
+                            <h3 class="quest-name">📸 VOCABSNAP</h3>
+                            <p class="quest-tagline">The Word Collector</p>
+                            <p class="quest-description">
+                                A Chrome extension that helps you save and review vocabulary while reading online.
+                                Instead of interrupting your reading flow to search or note down words, you can
+                                instantly save them and revisit them later.
+                            </p>
+                            <div class="quest-features">
+                                <span class="feature-tag">Chrome Extension</span>
+                                <span class="feature-tag">Manifest V3</span>
+                                <span class="feature-tag">Vocab Saving</span>
+                                <span class="feature-tag">Instant Capture</span>
+                                <span class="feature-tag">Local Storage</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-footer">
+                            <div class="quest-loot">
+                                <span class="loot-label">TECH LOOT:</span>
+                                <div class="loot-tags">
+                                    <span class="loot-tag">JavaScript</span>
+                                    <span class="loot-tag">Chrome API</span>
+                                    <span class="loot-tag">HTML</span>
+                                    <span class="loot-tag">CSS</span>
+                                </div>
+                            </div>
+                            <div class="quest-xp">
+                                <span class="xp-icon">⚡</span>
+                                <span class="xp-amount">+1,500 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quest 6: LectureLens — COMMON -->
+                    <div class="quest-card glass-panel animate-on-scroll" data-rarity="common" data-link="https://github.com/23f2002227/LectureLens" id="quest-lecturelens">
+                        <div class="card-corner top-left"></div>
+                        <div class="card-corner top-right"></div>
+                        <div class="card-corner bottom-left"></div>
+                        <div class="card-corner bottom-right"></div>
+
+                        <div class="quest-header">
+                            <div class="quest-rarity common">
+                                <span class="rarity-stars">★</span>
+                                <span class="rarity-label">COMMON</span>
+                            </div>
+                            <div class="quest-status completed">
+                                <span class="status-icon">✓</span>
+                                <span>COMPLETED</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-content">
+                            <h3 class="quest-name">🎓 LECTURELENS</h3>
+                            <p class="quest-tagline">The Knowledge Distiller</p>
+                            <p class="quest-description">
+                                A YouTube AI Learning Assistant that transforms educational videos into interactive
+                                learning resources. Users provide a YouTube video URL, and the system automatically
+                                extracts the transcript, processes it through a multi-stage NLP pipeline, and generates
+                                useful educational content using Google Gemini AI.
+                            </p>
+                            <div class="quest-features">
+                                <span class="feature-tag">Transcript Extraction</span>
+                                <span class="feature-tag">NLP Pipeline</span>
+                                <span class="feature-tag">AI Content Generation</span>
+                                <span class="feature-tag">Interactive Learning</span>
+                                <span class="feature-tag">RESTful APIs</span>
+                            </div>
+                        </div>
+
+                        <div class="quest-footer">
+                            <div class="quest-loot">
+                                <span class="loot-label">TECH LOOT:</span>
+                                <div class="loot-tags">
+                                    <span class="loot-tag">Flask</span>
+                                    <span class="loot-tag">Gemini API</span>
+                                    <span class="loot-tag">NLP</span>
+                                    <span class="loot-tag">YouTube API</span>
+                                    <span class="loot-tag">Python</span>
+                                </div>
+                            </div>
+                            <div class="quest-xp">
+                                <span class="xp-icon">⚡</span>
+                                <span class="xp-amount">+1,000 XP</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -592,7 +760,7 @@
                 <div class="section-header animate-on-scroll">
                     <span class="section-act">// ACT IV — HALL OF GLORY</span>
                     <h2 class="section-title">
-                        <span class="title-icon">🏆</span>
+                        <span class="title-icon"></span>
                         ACHIEVEMENTS
                     </h2>
                     <p class="section-subtitle">Trophies and milestones earned along the journey.</p>
@@ -664,7 +832,7 @@
                 <div class="section-header animate-on-scroll">
                     <span class="section-act">// ACT V — THE NEURAL FORGE</span>
                     <h2 class="section-title">
-                        <span class="title-icon">🔮</span>
+                        <span class="title-icon"></span>
                         ML PIPELINE
                     </h2>
                     <p class="section-subtitle">The architecture of intelligence. How models are forged.</p>
@@ -810,7 +978,7 @@
                 <div class="section-header animate-on-scroll">
                     <span class="section-act">// ACT VI — TRANSMISSION CHANNEL</span>
                     <h2 class="section-title">
-                        <span class="title-icon">📡</span>
+                        <span class="title-icon"></span>
                         CONTACT
                     </h2>
                     <p class="section-subtitle">Establish a secure connection.</p>

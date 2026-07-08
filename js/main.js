@@ -169,4 +169,14 @@
         }
     });
 
+    // ─────────────────────────────────────────────────────
+    // QUEST CARD CLICK → OPEN LINK
+    // ─────────────────────────────────────────────────────
+    document.querySelectorAll('.quest-card[data-link]').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            window.open(card.dataset.link, '_blank', 'noopener');
+        });
+    });
+
 })();
